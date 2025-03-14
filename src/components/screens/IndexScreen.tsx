@@ -6,8 +6,8 @@ import {
 	Button,
 	Card,
 	CardBody,
-	Center,
 	Container,
+	Image,
 	Drawer,
 	DrawerBody,
 	DrawerCloseButton,
@@ -20,12 +20,15 @@ import {
 	Heading,
 	Icon,
 	IconButton,
-	Image,
 	Link,
 	Stack,
 	Text,
 	VStack,
-	useDisclosure
+	useDisclosure,
+	Modal,
+	ModalOverlay,
+	ModalContent,
+	ModalCloseButton
 } from '@chakra-ui/react';
 
 import { useRef } from 'react';
@@ -34,7 +37,9 @@ import { FiArrowRight } from 'react-icons/fi';
 import { HiOutlineMenu } from 'react-icons/hi';
 
 export default function IndexScreen() {
-	const { isOpen, onOpen, onClose } = useDisclosure();
+	const { isOpen: isMenuOpen, onOpen: onMenuOpen, onClose: onMenuClose } = useDisclosure();
+	const { isOpen: isModalOpen, onOpen: onModalOpen, onClose: onModalClose } = useDisclosure();
+
 	const btnRef = useRef<HTMLButtonElement>(null);
 
 	return (
@@ -80,12 +85,12 @@ export default function IndexScreen() {
 							display={{ base: 'flex', md: 'none' }}
 							aria-label='Open menu'
 							icon={<Icon as={HiOutlineMenu} w={6} h={6} />}
-							onClick={onOpen}
+							onClick={onMenuOpen}
 							variant='ghost'
 							color='white'
 						/>
 
-						<Drawer isOpen={isOpen} placement='right' onClose={onClose} finalFocusRef={btnRef}>
+						<Drawer isOpen={isMenuOpen} placement='right' onClose={onMenuClose} finalFocusRef={btnRef}>
 							<DrawerOverlay />
 							<DrawerContent>
 								<DrawerCloseButton />
@@ -94,22 +99,22 @@ export default function IndexScreen() {
 								</DrawerHeader>
 								<DrawerBody>
 									<VStack spacing={4} align='stretch' pt={4}>
-										<Link href='/' fontWeight='bold' onClick={onClose}>
+										<Link href='/' fontWeight='bold' onClick={onMenuClose}>
 											Home
 										</Link>
-										<Link href='#' onClick={onClose}>
+										<Link href='#' onClick={onMenuClose}>
 											Airport Transfers
 										</Link>
-										<Link href='#' onClick={onClose}>
+										<Link href='#' onClick={onMenuClose}>
 											FAQ
 										</Link>
-										<Link href='#' onClick={onClose}>
+										<Link href='#' onClick={onMenuClose}>
 											Destinations
 										</Link>
-										<Link href='#' onClick={onClose}>
+										<Link href='#' onClick={onMenuClose}>
 											Contact
 										</Link>
-										<Button variant='primary' w='full'>
+										<Button variant='primary' w='full' onClick={onModalOpen}>
 											BOOK NOW
 										</Button>
 									</VStack>
@@ -155,6 +160,7 @@ export default function IndexScreen() {
 							display={{ base: 'none', md: 'flex' }}
 							variant='secondary'
 							rightIcon={<Icon as={FiArrowRight} w={4} h={4} />}
+							onClick={onModalOpen}
 						>
 							BOOK NOW
 						</Button>
@@ -199,6 +205,7 @@ export default function IndexScreen() {
 											size='lg'
 											variant='secondary'
 											leftIcon={<Icon as={FaPlane} w={4} h={4} />}
+											onClick={onModalOpen}
 										>
 											BOOK MY TRANSFER
 										</Button>
@@ -224,6 +231,22 @@ export default function IndexScreen() {
 				</Box>
 
 				<Box id='services' w='full' py={{ base: 12, md: 24, lg: 32 }} bg='brand.light'>
+					<Modal isOpen={isModalOpen} onClose={onModalClose} size='4xl' scrollBehavior='inside'>
+						<ModalOverlay />
+						<ModalContent bg='brand.light'>
+							<iframe
+								title='FareHarbor'
+								allow='payment *'
+								height='1000px'
+								width='100%'
+								style={{
+									borderRadius: '10px'
+								}}
+								src='https://fareharbor.com/embeds/book/tenerifeairporttransfers/?full-items=yes&ref=https%3A%2F%2Ftenerifeairporttransfers.co.uk&from-ssl=yes&ga4t=&g4=yes&cp=no&csp=yes&back=https%3A%2F%2Ftenerifeairporttransfers.co.uk%2F&language=en&u=4462c381-939a-4ad4-b0cd-916604f14083'
+							/>
+							<ModalCloseButton />
+						</ModalContent>
+					</Modal>
 					<Container maxW='container.xl' px={{ base: 4, md: 6 }}>
 						<VStack spacing={4} textAlign='center' mb={12}>
 							<Box>
