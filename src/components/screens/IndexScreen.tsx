@@ -29,7 +29,7 @@ import {
 } from '@chakra-ui/react';
 
 import { useRef } from 'react';
-import { FaPlane, FaClock, FaUsers } from 'react-icons/fa';
+import { FaClock, FaPlane, FaUsers } from 'react-icons/fa';
 import { FiArrowRight } from 'react-icons/fi';
 import { HiOutlineMenu } from 'react-icons/hi';
 

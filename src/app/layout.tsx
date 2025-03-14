@@ -91,15 +91,9 @@ export default function RootLayout({
 
 				<title>Tenerife Airport Transfers</title>
 				<meta name='title' content='Tenerife Airport Transfers' />
-				<meta
-					name='description'
-					content='Tenerife Airport Transfers'
-				/>
+				<meta name='description' content='Tenerife Airport Transfers' />
 
-				<meta
-					name='keywords'
-					content='Tenerife Airport Transfers'
-				/>
+				<meta name='keywords' content='Tenerife Airport Transfers' />
 				<meta name='theme-color' content='#0F2657' />
 				<meta name='author' content='Tenerife Airport Transfers' />
 
@@ -107,15 +101,18 @@ export default function RootLayout({
 				<meta property='og:url' content='https://tenerifeairporttransfers.es/' />
 				<meta property='og:site_name' content='Tenerife Airport Transfers' />
 				<meta property='og:title' content='Tenerife Airport Transfers' />
+				<meta property='og:description' content='Tenerife Airport Transfers' />
 				<meta
-					property='og:description'
-					content='Tenerife Airport Transfers'
+					property='og:image'
+					content='https://www.tenerifeairporttransfers.es/wp-content/uploads/2022/05/admin-ajax.png'
 				/>
-				<meta property='og:image' content='https://www.tenerifeairporttransfers.es/wp-content/uploads/2022/05/admin-ajax.png' />
 				<meta property='og:keywords' content='Tenerife Airport Transfers' />
 
-
-				<link rel='icon' type='image/x-icon' href='https://www.tenerifeairporttransfers.es/wp-content/uploads/2022/05/admin-ajax.png' />
+				<link
+					rel='icon'
+					type='image/x-icon'
+					href='https://www.tenerifeairporttransfers.es/wp-content/uploads/2022/05/admin-ajax.png'
+				/>
 
 				<style>
 					{`::-webkit-scrollbar{width:6px;z-index:100000}::-webkit-scrollbar-track{border-radius:10px}::-webkit-scrollbar-track:hover{background-color:#00000020}::-webkit-scrollbar-thumb{border-radius:10px;background-color:#00000050}::-webkit-scrollbar-thumb:hover{background-color:#00000060}.cf-turnstile div{display:flex;}.app-drag{app-region:drag;}`}
