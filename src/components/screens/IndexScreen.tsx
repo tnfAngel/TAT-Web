@@ -7,7 +7,6 @@ import {
 	Card,
 	CardBody,
 	Container,
-	Image,
 	Drawer,
 	DrawerBody,
 	DrawerCloseButton,
@@ -20,15 +19,16 @@ import {
 	Heading,
 	Icon,
 	IconButton,
+	Image,
 	Link,
+	Modal,
+	ModalCloseButton,
+	ModalContent,
+	ModalOverlay,
 	Stack,
 	Text,
 	VStack,
-	useDisclosure,
-	Modal,
-	ModalOverlay,
-	ModalContent,
-	ModalCloseButton
+	useDisclosure
 } from '@chakra-ui/react';
 
 import { useRef } from 'react';
@@ -453,6 +453,25 @@ export default function IndexScreen() {
 								</CardBody>
 							</Card>
 						</Grid>
+					</Container>
+				</Box>
+				<Box w='full' py={{ base: 12, md: 24, lg: 32 }} bg='white'>
+					<Container maxW='container.xl' px={{ base: 4, md: 6 }}>
+						<VStack spacing={4} textAlign='center' mb={12}>
+							<Box>
+								<Box
+									display='inline-block'
+									bg='brand.secondary'
+									color='brand.primary'
+									px={3}
+									py={1}
+									borderRadius='lg'
+									fontSize='sm'
+								>
+									[POR TERMINAR]
+								</Box>
+							</Box>
+						</VStack>
 					</Container>
 				</Box>
 			</Box>
